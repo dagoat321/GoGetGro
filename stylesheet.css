@@ -1,0 +1,307 @@
+/* ===== GLOBAL SETTINGS ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background: #147f63;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* ===== LOADING SCREEN ===== */
+.loading-screen {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #147f63;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    animation: fadeOut 0.8s forwards 2.5s;
+}
+
+.loading-logo { 
+    width: 300px; 
+    animation: slideIn 1.5s ease-out; 
+}
+
+.loading-text { 
+    color: white; 
+    margin-top: 15px; 
+    opacity: 0; 
+    animation: fadeIn 1s forwards 0.5s; 
+}
+
+/* ===== MAIN LOGIN CONTAINER ===== */
+.login-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    background: #147f63;
+    opacity: 0;
+    animation: fadeIn 1s forwards 3s;
+}
+
+/* Left Section: Form */
+.left {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 8%;
+    color: white;
+}
+
+.form-wrapper { 
+    width: 100%; 
+    max-width: 400px; 
+}
+
+.logo {
+    font-size: 24px;
+    line-height: 1.1;
+    margin-bottom: 35px;
+    font-weight: 300;
+}
+
+.logo b {
+    font-size: 64px;
+    display: block;
+    font-weight: 800;
+    letter-spacing: -2px;
+}
+
+/* Form Elements */
+.input-group { 
+    margin-bottom: 20px; 
+}
+
+label { 
+    display: block; 
+    margin-bottom: 8px; 
+    font-size: 0.9rem; 
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    outline: none;
+    font-size: 1rem;
+    transition: border 0.3s ease;
+}
+
+input:focus {
+    border-color: #16ffc1;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 16px;
+    margin-top: 25px;
+    border: none;
+    border-radius: 12px;
+    background: white;
+    color: #147f63;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover { 
+    background: #16ffc1; 
+    color: #ffffff; 
+}
+
+/* Links & Navigation */
+.link-wrapper {
+    text-decoration: none;
+    display: block;
+    text-align: right;
+    margin-top: 10px;
+}
+
+.link {
+    color: white;
+    font-size: 0.85rem;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.link:hover, .signup-link:hover {
+    color: #16ffc1;
+}
+
+.signup-text {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 0.95rem;
+    color: white;
+}
+
+.signup-link-wrapper {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.signup-link {
+    cursor: pointer;
+    transition: color 0.3s ease;
+    color: white;
+}
+
+.signup-link:hover b {
+    text-decoration: underline;
+}
+
+/* Social Footer */
+.social-footer {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.social-footer p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.social-icons i {
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.social-icons i:hover {
+    color: #16ffc1;
+    transform: scale(1.2);
+}
+
+/* Right Section: Carousel */
+.right {
+    width: 50%;
+    height: 92%;
+    position: relative;
+    border: 10px solid white;
+    border-radius: 50px;
+    overflow: hidden;
+    margin: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.carousel {
+    display: flex;
+    width: 400%; 
+    height: 100%;
+    animation: slideShow 12s infinite ease-in-out;
+}
+
+.slide { 
+    width: 25%; 
+    height: 100%; 
+}
+
+.slide img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    display: block; 
+}
+
+.continue {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    color: white;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 0.8rem;
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+    z-index: 10;
+}
+
+.continue:hover {
+    transform: scale(1.05);
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes slideIn { 
+    from { transform: translateX(-30px); opacity: 0; } 
+    to { transform: translateX(0); opacity: 1; } 
+}
+
+@keyframes fadeIn { 
+    to { opacity: 1; } 
+}
+
+@keyframes fadeOut { 
+    to { opacity: 0; visibility: hidden; } 
+}
+
+@keyframes slideShow {
+    0%, 28%   { transform: translateX(0); }
+    33%, 61%  { transform: translateX(-25%); }
+    66%, 95%  { transform: translateX(-50%); }
+    100%      { transform: translateX(-75%); }
+}
+.social-icons a {
+    color: white; /* Keeps icons white */
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    display: inline-block; /* Allows the scale effect to work properly */
+}
+
+/* Updated hover to target the link and the icon */
+.social-icons a:hover {
+    color: #16ffc1; /* Brand mint green */
+    transform: scale(1.2);
+}
+
+/* Ensure the icon itself doesn't have its own transition that conflicts */
+.social-icons i {
+    cursor: pointer;
+}
+/* ERROR HANDLING */
+input.error-border {
+    border: 2px solid #ff4d4d !important;
+    background-color: #fff5f5; /* Light tint to show the field is required */
+}
+
+input.error-shake {
+    animation: shake 0.4s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-8px); }
+    50% { transform: translateX(8px); }
+    75% { transform: translateX(-8px); }
+}
+
+/* Ensure smooth transition so the layout doesn't jump when the border appears */
+input {
+    border: 2px solid transparent; 
+    transition: border 0.2s ease, background-color 0.2s ease;
+}

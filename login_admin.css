@@ -1,0 +1,167 @@
+/* ===== RESET & BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: #0b4d3b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* ===== BACKGROUND IMAGE (SUBTLE TEXTURE) ===== */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url('images/bg3.png'); 
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15; 
+    z-index: -1;
+}
+
+/* ===== LOADING SCREEN: SLIDE TO CENTER ===== */
+.loading-screen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: #147f63;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: screenExit 0.6s forwards 1.2s;
+}
+
+.loading-logo { 
+    width: 260px; 
+    height: auto;
+    opacity: 0;
+    animation: slideToCenter 1.4s cubic-bezier(0.19, 1, 0.22, 1) forwards 0.5s;
+}
+
+.loading-text { 
+    color: white; 
+    margin-top: 20px; 
+    font-weight: 300;
+    font-size: 1.2rem;
+    text-align: center;
+    opacity: 0;
+    animation: slideToCenter 1.4s cubic-bezier(0.19, 1, 0.22, 1) forwards 0.7s;
+}
+
+/* ===== ADMIN CONTAINER (COMPACT) ===== */
+.login-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    opacity: 0;
+    animation: fadeIn 0.8s forwards 1.5s;
+}
+
+.admin-box {
+    width: 90%;
+    max-width: 450px; 
+    padding: 50px 40px;
+    background: #ffffff; 
+    border-radius: 40px; 
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+    text-align: center;
+}
+
+.admin-brand-logo { 
+    width: 160px; 
+    margin-bottom: 15px; 
+}
+
+.logo-section span { 
+    color: #147f63; 
+    font-size: 1.1rem; 
+}
+
+.logo-section b { 
+    font-size: 48px; 
+    font-weight: 900; 
+    color: #147f63; 
+    display: block; 
+    line-height: 1; 
+    letter-spacing: -1px; 
+    margin-bottom: 20px; 
+}
+
+.admin-label { 
+    display: inline-block; 
+    background: #147f63; 
+    color: #16ffc1; 
+    padding: 10px 30px; 
+    border-radius: 12px; 
+    font-weight: 800; 
+    letter-spacing: 1.5px; 
+    font-size: 0.85rem; 
+    text-transform: uppercase;
+    margin-bottom: 35px; 
+}
+
+/* ===== FORM ELEMENTS ===== */
+.form-group { margin-bottom: 25px; text-align: left; }
+label { color: #147f63; font-weight: 700; margin-bottom: 8px; display: block; padding-left: 10px; }
+
+input { 
+    width: 100%; 
+    padding: 16px; 
+    border-radius: 15px; 
+    border: 2px solid #eeeeee; 
+    outline: none; 
+    font-size: 1rem; 
+    background: #f9f9f9; 
+    transition: all 0.3s ease; 
+}
+
+input:focus { border-color: #16ffc1; background: white; }
+
+.login-btn { 
+    width: 100%; 
+    padding: 18px; 
+    border: none; 
+    border-radius: 15px; 
+    background: #147f63; 
+    color: white; 
+    font-weight: 700; 
+    font-size: 1.1rem; 
+    cursor: pointer; 
+    transition: all 0.3s ease; 
+    margin-top: 10px; 
+}
+
+.login-btn:hover { background: #16ffc1; color: #147f63; transform: translateY(-2px); }
+
+/* ===== ANIMATIONS ===== */
+@keyframes slideToCenter {
+    0% { transform: translateX(-100vw); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes screenExit { to { opacity: 0; visibility: hidden; pointer-events: none; } }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; } }
+
+.error-border { border-color: #ff4d4d !important; background: #fffafa !important; }
+@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-8px); } 50% { transform: translateX(8px); } 75% { transform: translateX(-8px); } }
+.error-shake { animation: shake 0.4s ease-in-out; }

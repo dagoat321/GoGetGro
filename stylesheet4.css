@@ -1,0 +1,136 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.about-page {
+    padding: 20px 15px 40px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+/* Navigation */
+.breadcrumb {
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #333;
+}
+
+.breadcrumb span {
+    color: #666;
+}
+
+/* Banner Shared Styles */
+.banner {
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Top Banner */
+.main-banner {
+    height: 250px;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                url('https://via.placeholder.com/1000x250?text=Grocery+Delivery+Hero') center/cover;
+    color: white;
+    padding: 0 40px;
+    margin-bottom: 30px;
+}
+
+.main-banner h1 {
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.main-banner h1 span {
+    font-weight: lighter;
+}
+
+.logo-overlay {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    font-weight: bold;
+    border: 2px solid white;
+    padding: 5px 10px;
+}
+
+/* Content Typography */
+.content-section h2 {
+    color: #2c3e50;
+    font-size: 1.5rem;
+}
+
+.content-section h3 {
+    color: #2c3e50;
+    margin-top: 25px;
+    font-size: 1.2rem;
+    border-left: 4px solid #27ae60; /* Green accent */
+    padding-left: 10px;
+}
+
+.content-section p {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    text-align: justify;
+}
+
+.content-section ul {
+    margin-bottom: 20px;
+}
+
+.content-section li {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+/* Footer Banner */
+.footer-banner {
+    height: 100px;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('https://via.placeholder.com/1000x100?text=Grocery+Shelves') center/cover;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-top: 40px;
+}
+
+.footer-logo img {
+    height: 60px;
+    background: white;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-banner { height: 180px; }
+    .main-banner h1 { font-size: 1.4rem; }
+    .footer-banner { font-size: 1rem; padding: 0 20px; }
+}

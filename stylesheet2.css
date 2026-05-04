@@ -1,0 +1,360 @@
+:root {
+    --primary-green: #007a5e;
+    --accent-teal: #00cc99;
+    --bg-light: #ffffff;
+    --white: #ffffff;
+    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --card-hover-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+/* Add this to your CSS */
+.content-wrapper {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 15px;
+    width: 100%;
+    flex: 1;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Allow interaction/scrolling when offcanvas is open */
+body.offcanvas-open {
+    overflow: auto !important;
+    padding-right: 0 !important;
+}
+
+.offcanvas-backdrop {
+    display: none !important;
+}
+
+/* --- NAVIGATION --- */
+.navbar {
+    background-color: var(--primary-green);
+    padding: 11px 0 10px 0;
+    position: sticky;
+    top: -1px;
+    z-index: 1050;
+    display: flex;
+    align-items: center;
+    border: none !important;
+}
+
+.hamburger-btn {
+    position: fixed;
+    left: 20px;
+    top: 15px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 1100;
+    transition: transform 0.2s ease;
+}
+
+.hamburger-btn:hover {
+    transform: scale(1.1);
+}
+
+.nav-container {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 15px;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-right: 20px;
+    transition: opacity 0.3s;
+}
+
+.logo-link:hover {
+    opacity: 0.8;
+}
+
+.logo-link img {
+    height: 45px;
+    width: auto;
+    display: block;
+}
+
+.search-container {
+    flex: 1;
+    max-width: 600px;
+    margin: 0 20px;
+    position: relative;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 10px 20px 10px 45px;
+    border-radius: 25px;
+    border: 1px solid transparent;
+    outline: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.search-container input:focus {
+    box-shadow: 0 0 0 3px rgba(0, 204, 153, 0.25);
+    border-color: var(--accent-teal);
+}
+
+.search-container .bi-search {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+.nav-links {
+    display: flex;
+    gap: 5px;
+    margin-left: auto;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.85rem;
+    padding: 8px 12px;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--accent-teal);
+}
+
+.nav-links a:first-child {
+    border-left: none;
+}
+
+/* --- SIDEBAR (OFFCANVAS) --- */
+.offcanvas {
+    background-color: var(--white);
+    width: 280px !important;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.offcanvas-header {
+    background-color: var(--primary-green);
+    color: white;
+}
+
+.offcanvas-body .nav-link {
+    color: #333;
+    font-weight: 500;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    transition: all 0.3s ease;
+}
+
+.offcanvas-body .nav-link:hover {
+    background-color: #f8f9fa;
+    padding-left: 25px;
+    color: var(--primary-green);
+}
+
+/* --- CONTACT PAGE SPECIFIC STYLES --- */
+
+.contact-icon {
+    font-size: 1.8rem;
+    color: var(--primary-green);
+    background: #e6f2ef;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.contact-input {
+    border-radius: 12px;
+    padding: 15px 20px;
+    border: 1px solid #e0e0e0;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Soft shadow like image */
+    transition: all 0.3s ease;
+}
+
+.contact-input:focus {
+    border-color: var(--primary-green);
+    box-shadow: 0 4px 15px rgba(0, 122, 94, 0.15);
+    outline: none;
+}
+.contact-input.is-invalid {
+    border: 2px solid #dc3545 !important;
+    background-color: #fff8f8 !important;
+}
+
+.send-message-btn {
+    background-color: #0b7a61; /* Darker teal from image */
+    color: white;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+    box-shadow: 0 4px 10px rgba(11, 122, 97, 0.3);
+}
+
+.send-message-btn:hover {
+    background-color: var(--accent-teal);
+    color: white;
+}
+
+/* Adjusting display heading for GoGetGro */
+h1.display-3 {
+    font-size: 3.5rem;
+    letter-spacing: -1px;
+}
+
+/* Ensure copyright doesn't have extra gap */
+.copyright-bar {
+    margin-bottom: 0;
+    padding-bottom: 20px;
+}
+
+/* --- FOOTER --- */
+.custom-footer {
+    background-color: var(--white);
+    padding: 0px 0 0px 0;
+    margin-top: 0px;
+}
+
+.footer-logo-box img {
+    height: 5 0px;
+    margin-bottom: 15px;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-socials a {
+    color: #333;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-socials a:hover {
+    color: var(--primary-green);
+}
+
+.footer-link-group {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-link-group li {
+    margin-bottom: 12px;
+}
+
+.footer-link-group a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.footer-link-group a:hover {
+    color: var(--primary-green);
+}
+
+.newsletter-title {
+    font-weight: 800;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+}
+
+.newsletter-desc {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.subscribe-form {
+    position: relative;
+    max-width: 350px;
+}
+
+.subscribe-form input {
+    width: 100%;
+    padding: 10px 45px 10px 20px;
+    border-radius: 30px;
+    border: 1px solid #333;
+    outline: none;
+}
+
+.subscribe-form .arrow-btn {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* --- COPYRIGHT BAR (With Line Added) --- */
+.copyright-bar {
+    text-align: center;
+    padding-top: 10px;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: #aaa;
+    font-style: italic;
+}
+
+/* Red border for invalid fields when form is submitted */
+.is-invalid {
+    border: 2px solid #dc3545 !important;
+    background-color: #fff8f8 !important;
+}
+
+/* Modal styling to match your image */
+#errorModal .modal-content {
+    border-radius: 20px;
+    border: none;
+}
+
+/* --- MEDIA QUERIES --- */
+@media (max-width: 768px) {
+    .hamburger-btn {
+        left: 10px;
+        font-size: 1.5rem;
+        top: 18px;
+    }
+
+    .nav-container {
+        padding-left: 50px;
+        flex-wrap: wrap;
+    }
+
+    .search-container {
+        min-width: 100%;
+        margin: 10px 0 0 0;
+    }
+}
