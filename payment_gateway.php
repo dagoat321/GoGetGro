@@ -16,7 +16,10 @@ $gwName    = $allGw[$gateway] ?? ucfirst($gateway);
 $order = ($orderId !== '') ? find_order($orderId) : null;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $orderId !== '' && isset($_POST['pay_with_paymongo'])) {
-    $apiKey = 'your_api_key_here'; // NOTE: Replace with your actual API key, do not commit real secrets to GitHub
+    // Load secret key from external config
+    $secrets = file_exists(__DIR__ . '/config/secrets.php') ? require __DIR__ . '/config/secrets.php' : [];
+    $apiKey = $secrets['PAYMONGO_SECRET_KEY'] ?? '';
+
     
     $amountInCents = intval(round((float)$order['total_amount'] * 100));
     $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
